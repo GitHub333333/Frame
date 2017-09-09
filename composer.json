@@ -1,0 +1,25 @@
+{
+    "name": "github333333/frame",
+    "description": "c86 frame",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zhang",
+            "email": "2975201517@qq.com"
+        }
+    ],
+    "require": {
+        "filp/whoops": "^2.1"
+    },
+    "autoload": {
+        "files": [
+            "system/lib/helper.php"
+        ],
+        "psr-4": {
+            "houdunwang\\":"houdunwang\\",
+            "app\\":"app\\",
+            "system\\":"system\\"
+        }
+    }
+}
