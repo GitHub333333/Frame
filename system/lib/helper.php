@@ -32,3 +32,26 @@ if(!function_exists('c')){
 
     }
 }
+
+
+if(!function_exists ('u')){
+
+    function u($url,$args = []){
+       //http_built_query将数组中的元素转换成   键名1=键值1&键名2=键值2
+        $args = http_build_query ($args);
+        //将参数转换成数组
+        $info = explode ('.',$url);
+        //dd($info);
+        if(count ($info)==2){
+            return "index.php?s=".MODULE."/{$info[0]}/{$info[1]}" . "&{$args}";
+        }
+        if(count ($info)==1){
+            return "index.php?s=".MODULE."/".CONTROLLER."/{$info[0]}". "&{$args}";
+        }
+        return "index.php?s={$info[0]}/{$info[1]}/{$info[2]}". "&{$args}";
+    }
+}
+
+
+//定义一个变量去接收是否发起了POST请求
+define('IS_POST', $_SERVER['REQUEST_METHOD'] == 'POST' ? true : false);

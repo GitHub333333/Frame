@@ -22,6 +22,8 @@ class Base{
     private $data;
     //1.属性$field:存放字段
     private $field = '*';
+    //1.属性order:存放排序语句
+    private $order='';
     //构造方法:一开始连接数据库
     //$class:当前调用的类名，也就是表格对应类，用于截取表格名字
     public function __construct($class)
@@ -91,10 +93,11 @@ class Base{
         //$field:想要查询的字段
         $field = $this->field;
         //$sql:拼接sql语句查询多条数据
-        $sql = "select {$field} from {$this->table} {$this->where}";
-        //dd($sql);
+        $sql = "select {$field} from {$this->table} {$this->where} {$this->order}";
+        //dd($sql);die;
         //变量$data:存放查询的结果
         $data = $this->query($sql);
+        $this->data = $data;
         return $this;
     }
 
@@ -197,13 +200,12 @@ class Base{
 
     //orderBy方法:排序
     //形参$field:按照按个字段排序  $style:排序方式
-    public function orderBy($fields,$style=''){
-        //拼接sql语句
-        $sql = "select {$this->field} from {$this->table} {$this->where} order by {$fields} {$style}";
-        //dd($sql);die;
-        //执行sql排序语句
-        $data = $this->query($sql);
-        return $data;
+    public function orderBy($order){
+        //拼接order语句
+        $order = "order by " . $order;
+        //dd($order);die;
+        $this->order = $order;
+        return $this;
     }
 
     //exec方法:执行没有结果集的操作

@@ -82,6 +82,7 @@ class Boot{
         //1.call_user_func_array:调用类内部的方法 参数1:[实例化的类,需调用的方法] 参数2:一个数组 必须写(不传入值也要写上)
         //2.第一个参数传入类:$class 方法:$action
         //3.echo作用:作用于核心文件houdunwang的v层下的Base类的__toString方法
+
         echo call_user_func_array([new $class,$action],[]);
     }
 

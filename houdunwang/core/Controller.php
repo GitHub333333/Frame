@@ -14,6 +14,7 @@ class Controller{
     protected  function message($msg){
         //1.加载提示模本文件
         include './view/message.php';
+        die;
     }
 
     //1.setRedirect方法:跳转指定地址或者返回上一级
@@ -31,7 +32,7 @@ class Controller{
 
             //1.赋予跳转语句location.href 跳转指定界面
             $this->url="location.href='{$url}'";
-            dd($this->url);
+            //dd($this->url);
         }
         //dd($this);
         //1.这里return $this的原因在Entry类中已说明

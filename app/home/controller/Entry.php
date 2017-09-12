@@ -10,9 +10,11 @@ use houdunwang\view\View;
 use system\model\Article;
 use system\model\Stu;
 
+//前台界面
 class Entry extends Controller {
     public function index(){
 
+        //Controller::message('成功');
         //调用查询方法
         //这里使用一张表对应一个类
         //new Base();
